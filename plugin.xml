@@ -91,7 +91,10 @@
         <!-- <framework src="lib/ios/Fabric.framework" custom="true" />
         <framework src="lib/ios/Crashlytics.framework" custom="true" /> -->
         <podspec>
-            <pods use-frameworks="true">
+            <config>
+                <source url="https://github.com/CocoaPods/Specs.git"/>
+            </config>
+            <pods>
                 <pod name="Fabric" />
                 <pod name="Crashlytics" />
             </pods>
