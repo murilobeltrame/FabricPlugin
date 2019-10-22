@@ -1,7 +1,7 @@
-
 var fs = require("fs");
 var path = require("path");
 var utilities = require("./utilities");
+var xcode = require("xcode");
 
 /**
  * This is used as the display text for the build phase block in XCode as well as the
@@ -17,10 +17,10 @@ module.exports = {
      * tool with the API and Secret keys. This tool is used to upload the debug symbols
      * (dSYMs) so that Crashlytics can display stack trace information in it's web console.
      */
-    addShellScriptBuildPhase: function (context, xcodeProjectPath) {
+    addShellScriptBuildPhase: function(context, xcodeProjectPath) {
 
         var pluginConfig = utilities.getPluginConfig("ios");
-        var xcode = context.requireCordovaModule("xcode");
+        // var xcode = context.requireCordovaModule("xcode");
 
         // Read and parse the XCode project (.pxbproj) from disk.
         // File format information: http://www.monobjc.net/xcode-project-file-format.html
@@ -73,9 +73,9 @@ module.exports = {
      * This helper is used to remove the build phase from the XCode project that was added
      * by the addShellScriptBuildPhase() helper method.
      */
-    removeShellScriptBuildPhase: function (context, xcodeProjectPath) {
+    removeShellScriptBuildPhase: function(context, xcodeProjectPath) {
 
-        var xcode = context.requireCordovaModule("xcode");
+        // var xcode = context.requireCordovaModule("xcode");
 
         // Read and parse the XCode project (.pxbproj) from disk.
         // File format information: http://www.monobjc.net/xcode-project-file-format.html
@@ -96,8 +96,7 @@ module.exports = {
 
                 // If the name of this block matches ours, then we want to delete it.
                 shouldDelete = buildPhase.name && buildPhase.name.indexOf(comment) !== -1;
-            }
-            else {
+            } else {
                 // Dealing with a comment block.
 
                 // If this is a comment block that matches ours, then we want to delete it.
@@ -123,7 +122,7 @@ module.exports = {
             var nativeTarget = nativeTargets[nativeTargetId];
 
             // We remove the reference to the block by filtering out the the ones that match.
-            nativeTarget.buildPhases = nativeTarget.buildPhases.filter(function (buildPhase) {
+            nativeTarget.buildPhases = nativeTarget.buildPhases.filter(function(buildPhase) {
                 return buildPhase.comment !== comment;
             });
         }

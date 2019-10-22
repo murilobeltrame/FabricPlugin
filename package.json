@@ -25,8 +25,7 @@
         "cordova-ios"
     ],
     "author": "Roman A. Sarria",
-    "contributors": [
-        {
+    "contributors": [{
             "name": "Justin Unterreiner",
             "email": "justin.unterreiner@gmail.com",
             "url": "https://github.com/Justin-Credible"
@@ -51,7 +50,8 @@
         "crashlytics": "3.9.3"
     },
     "dependencies": {
-        "opencollective": "^1.0.3"
+        "opencollective": "^1.0.3",
+        "xcode": "2.0.0"
     },
     "collective": {
         "type": "opencollective",
