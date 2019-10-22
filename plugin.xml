@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<plugin id="cordova-fabric-plugin" version="1.1.14-dev" xmlns="http://www.phonegap.com/ns/plugins/1.0">
+<plugin id="cordova-fabric-plugin" version="1.1.14-dev" 
+    xmlns="http://www.phonegap.com/ns/plugins/1.0">
 
     <name>cordova-fabric-plugin</name>
     <description>Cordova Fabric.io Plugin</description>
@@ -87,8 +88,14 @@
         <framework src="SystemConfiguration.framework" />
         <framework src="Security.framework" weak="true" />
 
-        <framework src="lib/ios/Fabric.framework" custom="true" />
-        <framework src="lib/ios/Crashlytics.framework" custom="true" />
+        <!-- <framework src="lib/ios/Fabric.framework" custom="true" />
+        <framework src="lib/ios/Crashlytics.framework" custom="true" /> -->
+        <podspec>
+            <pods use-frameworks="true">
+                <pod name="Fabric" />
+                <pod name="Crashlytics" />
+            </pods>
+        </podspec>
     </platform>
 
 </plugin>
