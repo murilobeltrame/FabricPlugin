@@ -96,6 +96,7 @@
             </config>
             <pods>
                 <pod name="Fabric" />
+                <pod name="Answers" />
                 <pod name="Crashlytics" />
             </pods>
         </podspec>
